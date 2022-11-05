@@ -15,7 +15,6 @@ const Home = (props) => {
   }, []);
   return (
     <div className="home-page">
-      <h1>Home Page</h1>
       {backdrops && <Backdrop backdrops={backdrops} />}
       <NavBar />
       <SearchBar />

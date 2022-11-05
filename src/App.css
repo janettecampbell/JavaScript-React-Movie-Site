@@ -6,6 +6,12 @@
 
 .nav {
   text-align: center;
+  font-size: 2rem;
+  padding: 10px;
+  background-color: #000;
+  opacity: 0.8;
+  width: 100vw;
+  position: fixed;
 }
 
 .nav a {
@@ -17,7 +23,15 @@
 /* HOME PAGE */
 
 .home-page {
-  background-color: #000;
+  background-color: #fff;
   height: 100vh;
   width: 100vw;
+}
+
+.backdrop-image {
+  opacity: 0.25;
+  position: absolute;
+  max-width: 100vw;
+  max-height: 100vh;
+  object-fit: cover;
 }

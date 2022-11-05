@@ -21,6 +21,7 @@ const Backdrop = (props) => {
         continue;
       } else {
         backdropTitle = backdrops[i].title;
+        break;
       }
     }
   };
@@ -34,9 +35,8 @@ const Backdrop = (props) => {
         <Backdrop key={movie.id} movie={movie} />
       ))} */}
       <img
-        style={{ opacity: 0.25 }}
         className="backdrop-image"
-        src={`https://image.tmdb.org/t/p/w500${backdropPath}`}
+        src={`https://image.tmdb.org/t/p/original${backdropPath}`}
         alt={backdropTitle}
       />
     </div>
