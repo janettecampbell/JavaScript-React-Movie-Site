@@ -2,36 +2,106 @@
   margin: 0;
 }
 
-/* NAVIGATION BAR */
+/* HEADER */
+
+header {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  /* height: 67px; */
+  width: 100vw;
+  justify-content: space-between;
+}
+
+.logo img {
+  height: 67px;
+}
+
+.nav-group {
+  display: flex;
+  align-items: center;
+  margin: 10px 0 4px 40px;
+}
 
 .nav {
-  text-align: center;
-  font-size: 2rem;
-  padding: 10px;
-  background-color: #000;
-  opacity: 0.8;
-  width: 100vw;
-  position: fixed;
+  font-size: 1.25rem;
+  /* padding: 10px 0 10px 10px; */
 }
 
 .nav a {
-  margin: 20px;
+  margin-left: 25px;
   text-decoration: none;
   color: #fff;
+}
+
+.search-bar-group {
+  display: flex;
+  align-items: center;
+  margin-right: 40px;
+}
+
+.search-bar {
+  /* margin: auto; */
+}
+
+.search-bar img {
+  width: 26px;
+  height: 26px;
 }
 
 /* HOME PAGE */
 
 .home-page {
-  background-color: #fff;
   height: 100vh;
   width: 100vw;
+  overflow: auto;
 }
 
 .backdrop-image {
   opacity: 0.25;
   position: absolute;
-  max-width: 100vw;
-  max-height: 100vh;
+  width: 100vw;
+  height: calc(100vh);
   object-fit: cover;
+  z-index: -1;
+}
+
+/* SEARCH BAR */
+
+.search-bar-home {
+  width: fit-content;
+  margin: 50vh auto 0 auto;
+}
+
+/* MOVIE PAGE */
+.movie-home {
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.left-column {
+}
+
+.movie-items {
+  position: absolute;
+  width: 90vw;
+  z-index: -1;
+}
+
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movie-card {
+  position: relative;
+  width: fit-content;
+  float: left;
+  height: 277px;
 }

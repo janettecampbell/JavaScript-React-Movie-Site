@@ -1,26 +1,40 @@
 const Backdrop = (props) => {
-  const { backdrops } = props;
+  const { movies } = props;
 
   let backdropPath;
   let backdropTitle;
 
   const getBackdrop = () => {
-    for (let i = 0; i < backdrops.length; i++) {
-      if (backdrops[i].adult) {
+    for (let i = 0; i < movies.length; i++) {
+      if (movies[i].adult) {
         continue;
       } else {
-        backdropPath = backdrops[i].backdrop_path;
+        const genre = movies[i].genre_ids;
+        for (let j = 0; j < genre.length; j++) {
+          if (genre[j] === 27) {
+            i++;
+            break;
+          }
+        }
+        backdropPath = movies[i].backdrop_path;
         break;
       }
     }
   };
 
   const getTitle = () => {
-    for (let i = 0; i < backdrops.length; i++) {
-      if (backdrops[i].adult) {
+    for (let i = 0; i < movies.length; i++) {
+      if (movies[i].adult) {
         continue;
       } else {
-        backdropTitle = backdrops[i].title;
+        const genre = movies[i].genre_ids;
+        for (let j = 0; j < genre.length; j++) {
+          if (genre[j] === 27) {
+            i++;
+            break;
+          }
+        }
+        backdropTitle = movies[i].title;
         break;
       }
     }
