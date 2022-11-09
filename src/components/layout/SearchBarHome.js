@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import SearchResults from "./SearchResults";
+import searchIcon from "../images/search-icon.png";
 
 const SearchBarHome = (props) => {
   const [searchInput, setSearchInput] = useState("");
@@ -33,8 +33,8 @@ const SearchBarHome = (props) => {
         onChange={handleChange}
         placeholder="What would you like to watch?"
       />
-      <button type="submit" onClick={handleSubmit}>
-        Search
+      <button className="search-button" type="submit" onClick={handleSubmit}>
+        <img src={searchIcon} alt="magnifying glass" />
       </button>
     </div>
   );
