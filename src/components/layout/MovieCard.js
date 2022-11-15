@@ -8,10 +8,13 @@ const MovieCard = (props) => {
         src={`https://image.tmdb.org/t/p/w185${movie.poster_path}`}
         alt={movie.title}
       />
-      <div className="rating">{movie.vote_average * 10}</div>
+      <div className="rating">
+        <div className="percent">{movie.vote_average * 10}</div>
+        <div className="symbol">%</div>
+      </div>
       <div className="content">
-        <h2>{movie.title}</h2>
-        <p>{movie.release_date}</p>
+        <h3>{movie.title || movie.name}</h3>
+        <p>{movie.release_date || movie.first_air_date}</p>
       </div>
     </div>
   );

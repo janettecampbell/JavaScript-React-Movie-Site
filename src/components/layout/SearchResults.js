@@ -1,14 +1,15 @@
-import MovieResults from "./MovieResults";
+import MovieCard from "./MovieCard";
 
 const SearchResults = (props) => {
-  const { handleSubmit, handleChange, movies, setMovies, searchInput } = props;
+  const { movieResults } = props;
 
   return (
     <div className="return-results">
-      <div className="search-term">{}searchInput</div>
-      {/* {movies.map((movie) => (
-        <MovieResults key={results.id} />
-      ))} */}
+      <div className="movie-items">
+        {movieResults.map((movie) => (
+          <MovieCard key={movie.id} movie={movie} />
+        ))}
+      </div>
     </div>
   );
 };
