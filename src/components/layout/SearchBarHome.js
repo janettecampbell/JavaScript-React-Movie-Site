@@ -7,15 +7,17 @@ const SearchBarHome = (props) => {
 
   return (
     <div className="search-bar-home">
-      <input
-        type="text"
-        className="search-field"
-        onChange={handleChange}
-        placeholder="What would you like to watch?"
-      />
-      <button className="search-button" type="submit" onClick={handleSubmit}>
-        <img src={searchIcon} alt="magnifying glass" />
-      </button>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          className="search-field"
+          onChange={handleChange}
+          placeholder="What would you like to watch?"
+        />
+        <button className="search-button" type="submit" onClick={handleSubmit}>
+          <img src={searchIcon} alt="magnifying glass" />
+        </button>
+      </form>
     </div>
   );
 };

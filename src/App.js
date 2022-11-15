@@ -3,7 +3,6 @@ import Home from "./components/pages/Home";
 import TVSeries from "./components/pages/TVSeries";
 import Movies from "./components/pages/Movies";
 import { Routes, Route } from "react-router-dom";
-import SearchResults from "./components/layout/SearchResults";
 
 function App() {
   return (

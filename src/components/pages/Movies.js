@@ -17,7 +17,7 @@ const Movies = () => {
     <div className="movie-home">
       <NavBar />
       <div className="column-left">Search Params</div>
-      <div className="movie-items">
+      <div className="movie-list">
         {popularMovies && <MovieList popularMovies={popularMovies} />}
       </div>
     </div>
