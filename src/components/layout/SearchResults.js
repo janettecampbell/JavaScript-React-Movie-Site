@@ -4,7 +4,7 @@ const SearchResults = (props) => {
   const { movieResults } = props;
 
   return (
-    <div className="return-results">
+    <div className="movie-list">
       <div className="movie-items">
         {movieResults.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
