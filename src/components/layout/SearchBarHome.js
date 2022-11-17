@@ -1,4 +1,3 @@
-import { useState } from "react";
 import searchIcon from "../images/search-icon.png";
 
 const SearchBarHome = (props) => {
