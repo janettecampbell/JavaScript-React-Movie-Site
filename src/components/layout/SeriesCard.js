@@ -29,8 +29,10 @@ const SeriesCard = (props) => {
           <p>{series.overview}</p>
         </div>
         <div className="rating">
-          <div className="percent">{series.vote_average * 10}</div>
-          <div className="symbol">%</div>
+          <div className="percent">
+            {series.vote_average === 0 ? "NR" : series.vote_average * 10}
+          </div>
+          <div className="symbol">{series.vote_average === 0 ? "" : "%"}</div>
         </div>
         <div className="content">
           <h3>{series.name}</h3>

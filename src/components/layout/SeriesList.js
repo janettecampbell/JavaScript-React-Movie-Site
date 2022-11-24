@@ -6,7 +6,7 @@ const SeriesList = (props) => {
   return (
     <div className="series-items">
       {popularSeries.map((series) => (
-        <SeriesCard key={popularSeries.id} series={series} />
+        <SeriesCard key={series.id} series={series} />
       ))}
     </div>
   );

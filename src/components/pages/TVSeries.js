@@ -4,7 +4,7 @@ import NavBar from "../layout/NavBar";
 import SeriesList from "../layout/SeriesList";
 
 const TVSeries = () => {
-  const [popularSeries, setPopularSeries, page, setPage] = useState(null);
+  const [popularSeries, setPopularSeries] = useState(null);
 
   useEffect(() => {
     fetch(

@@ -65,7 +65,7 @@ header {
   opacity: 0.25;
   position: fixed;
   width: 100vw;
-  height: calc(100vh);
+  height: 100vh;
   object-fit: cover;
   z-index: -1;
 }
@@ -151,7 +151,6 @@ header {
   height: 40px;
   top: -24px;
   left: 10px;
-  margin: 0 0 0 0;
   border-style: solid;
   border-color: #888;
 }
@@ -193,7 +192,6 @@ header {
   background-color: #fff;
   border-radius: 10px;
   padding: 10px;
-  /* box-shadow: 3px 7px 12px -2px #000; */
   border-style: solid;
   border-width: 1px;
   border-color: #888;
@@ -256,4 +254,126 @@ header {
   html {
     --numberOfColumns: 4;
   }
+}
+
+/* DETAILS */
+
+/* Background Image */
+
+.detail-box {
+  margin-top: 85px;
+  height: 60vh;
+}
+
+.background-image-wrapper {
+  background-color: rgba(0, 0, 0, 0.9);
+  height: 60vh;
+  position: absolute;
+}
+
+.background-image {
+  width: 100vw;
+  height: 60vh;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.1;
+  object-position: 50% 0;
+  margin-left: 11vw;
+}
+
+/* Detail Panel */
+
+.detail-panel {
+  padding: 1vh 0;
+  height: 48vh;
+  width: 90vw;
+  position: absolute;
+  top: 85px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  display: flex;
+  color: #fff;
+}
+
+.poster {
+  border-radius: 10px;
+  height: 58vh;
+}
+
+/* Detail Content */
+
+.content-wrapper {
+  margin: 3vh 0 0 3vw;
+}
+
+.score-wrapper {
+  position: relative;
+  background-color: #000;
+  /* text-align: center; */
+  /* color: #fff; */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  border-style: solid;
+  border-color: #888;
+  margin: 2vh 0;
+}
+
+.movie-rating {
+  margin: 5px 10px;
+}
+
+.movie-symbol {
+  font-size: xx-small;
+  margin: -40px 7px 0 0;
+  text-align: right;
+}
+
+.title-wrapper {
+  /* color: #fff; */
+  height: fit-content;
+  width: fit-content;
+}
+
+.title-wrapper span {
+  width: fit-content;
+  white-space: nowrap;
+}
+
+.website-wrapper a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.tagline-wrapper {
+  /* color: #fff; */
+  font-size: large;
+  margin: 2vh 0;
+}
+
+.overview-wrapper h3 {
+  margin-bottom: 1vh;
+}
+
+.bottom-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2vw;
+}
+
+.status-wrapper {
+}
+
+.budget-wrapper {
+}
+
+.budget-wrapper h3 {
+}
+
+.revenue-wrapper h3 {
+}
+
+.movie-trailer {
+  margin: 0 auto;
 }
