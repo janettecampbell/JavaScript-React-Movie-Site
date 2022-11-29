@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SeriesCard = (props) => {
   const { series } = props;
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const [isVisible, setIsVisible] = useState(false);
 
@@ -13,11 +16,22 @@ const SeriesCard = (props) => {
     setIsVisible(false);
   };
 
+  const handleClick = () => {
+    const basePath = location.pathname;
+    const newPath = `${basePath}/${series.title || "movie"}`;
+
+    if (newPath !== location.pathname) {
+      navigate(`/series-detail/${series.title}`, { state: { id: series.id } });
+    }
+    // navigate("/detail", { state: { id: series.id } });
+  };
+
   return (
     <div
       className="series-card"
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
+      onClick={handleClick}
     >
       <div className="image-wrapper">
         <img

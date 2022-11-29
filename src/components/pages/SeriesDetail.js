@@ -9,38 +9,34 @@ const MovieDetail = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   const location = useLocation();
-  const movieID = location.state.id;
-  // const movieID = 436270;
+  // const seriesID = location.state.id;
+  const seriesID = 90669;
 
   useEffect(() => {
     fetch(
-      `https://api.themoviedb.org/3/movie/${movieID}?api_key=4af29920e903cef08f533ae3feff4860&language=en-US`
+      `https://api.themoviedb.org/3/tv/${seriesID}?api_key=4af29920e903cef08f533ae3feff4860&language=en-US`
     )
       .then((res) => res.json())
       .then((json) => setDetails(json))
       .catch((err) => console.error(err));
   }, []);
 
+  console.log(details);
+
   useEffect(() => {
     const fetchVideoData = async () => {
       const data = await fetch(
-        `https://api.themoviedb.org/3/movie/${movieID}/videos?api_key=4af29920e903cef08f533ae3feff4860&language=en-US`
+        `https://api.themoviedb.org/3/tv/${seriesID}/videos?api_key=4af29920e903cef08f533ae3feff4860&language=en-US`
       ).then((res) => res.json());
       setVideos(data.results);
     };
 
     fetchVideoData();
-    // fetch(
-    //   `https://api.themoviedb.org/3/movie/${movieID}/videos?api_key=4af29920e903cef08f533ae3feff4860&language=en-US`
-    // )
-    //   .then((res) => res.json())
-    //   .then((json) => setVideos(json.results))
-    //   .catch((err) => console.error(err));
   }, []);
 
   useEffect(() => {
-    document.title = `Movie Page | ${details.title || "Details"}`;
-  }, [details.title]);
+    document.title = `Movie Page | ${details.original_name || "Details"}`;
+  }, [details.original_name]);
 
   useEffect(() => {
     const closeVideo = (e) => {
@@ -76,13 +72,13 @@ const MovieDetail = () => {
   const getHours = (inputMinutes) => {
     const hours = Math.floor(inputMinutes / 60);
 
-    return hours;
+    return hours < 1 ? "" : hours + "h";
   };
 
   const getMinutes = (inputMinutes) => {
     const minutes = inputMinutes % 60;
 
-    return minutes;
+    return minutes < 1 ? "" : minutes + "m";
   };
 
   const getVideo = () => {
@@ -114,7 +110,7 @@ const MovieDetail = () => {
           <img
             className="background-image"
             src={`https://image.tmdb.org/t/p/original${details.backdrop_path}`}
-            alt={`${details.title} Backdrop`}
+            alt={`${details.original_name} Backdrop`}
           />
         </div>
         <div className="detail-panel">
@@ -122,17 +118,18 @@ const MovieDetail = () => {
             <img
               className="poster"
               src={`https://image.tmdb.org/t/p/w342${details.poster_path}`}
-              alt={`${details.title} Poster`}
+              alt={`${details.original_name} Poster`}
             />
           </div>
           <div className="content-wrapper">
             <div className="title-wrapper">
-              <h1>{details.title}</h1>
+              <h1>{details.original_name}</h1>
               <p>
-                <span>{convertDate(details.release_date)} (US)</span> &#8226;{" "}
+                <span>{convertDate(details.first_air_date)} (US)</span> &#8226;{" "}
                 <span>{getGenre(details.genres)} &#8226;</span>{" "}
                 <span>
-                  {getHours(details.runtime)}h {getMinutes(details.runtime)}m
+                  {getHours(details.episode_run_time)}{" "}
+                  {getMinutes(details.episode_run_time)}
                 </span>
               </p>
             </div>
@@ -164,7 +161,7 @@ const MovieDetail = () => {
             </div>
             <div className="website-wrapper">
               <h4>
-                <a href={details.homepage}>Official Movie Website</a>
+                <a href={details.homepage}>Official Series Website</a>
               </h4>
             </div>
             <div className="tagline-wrapper">
@@ -177,17 +174,21 @@ const MovieDetail = () => {
               <p>{details.overview}</p>
             </div>
             <div className="bottom-section">
-              <div className="status-wrapper">
-                <h3>Status</h3>
-                <p>{details.status}</p>
+              <div className="type-wrapper">
+                <h3>Type</h3>
+                <p>{details.type}</p>
               </div>
-              <div className="budget-wrapper">
-                <h3>Budget</h3>
-                <p>${convertToDollars(details.budget)}</p>
+              <div className="last-episode-wrapper">
+                <h3>Last Episode Air Date</h3>
+                <p>{convertDate(details.last_air_date)}</p>
               </div>
-              <div className="revenue-wrapper">
-                <h3>Revenue</h3>
-                <p>${convertToDollars(details.revenue)}</p>
+              <div className="next-episode-wrapper">
+                <h3>Nest Episode Air Date</h3>
+                <p>
+                  {details.next_episode_to_air === null
+                    ? ""
+                    : convertDate(details.revenue)}
+                </p>
               </div>
             </div>
           </div>

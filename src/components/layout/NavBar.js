@@ -12,7 +12,7 @@ const NavBar = (props) => {
         </div>
         <nav className="nav">
           <a href="/movies">Movies</a>
-          <a href="tv-series">TV-Series</a>
+          <a href="/tv-series">TV-Series</a>
         </nav>
       </div>
       <div className="search-bar-group">

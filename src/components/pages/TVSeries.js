@@ -17,7 +17,6 @@ const TVSeries = () => {
   return (
     <div className="series-home">
       <NavBar />
-      <div className="column-left">Search Params</div>
       <div className="series-list">
         {popularSeries && <SeriesList popularSeries={popularSeries} />}
       </div>

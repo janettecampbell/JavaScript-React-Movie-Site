@@ -21,7 +21,7 @@ const MovieCard = (props) => {
     const newPath = `${basePath}/${movie.title || "movie"}`;
 
     if (newPath !== location.pathname) {
-      navigate(`/detail/${movie.title}`, { state: { id: movie.id } });
+      navigate(`/movie-detail/${movie.title}`, { state: { id: movie.id } });
     }
     // navigate("/detail", { state: { id: movie.id } });
   };
