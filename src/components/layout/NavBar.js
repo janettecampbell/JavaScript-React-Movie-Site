@@ -39,6 +39,8 @@ const NavBar = (props) => {
         <nav className="nav">
           <a href="/movies">Popular Movies</a>
           {/* <a href="/tv-series">TV-Series</a> */}
+          <a href="/movies">Top Rated</a>
+          <a href="/movies">Upcoming</a>
         </nav>
       </div>
       <div className="search-bar-group">
