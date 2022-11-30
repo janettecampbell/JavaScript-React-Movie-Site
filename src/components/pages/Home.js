@@ -15,7 +15,7 @@ const Home = () => {
     )
       .then((res) => res.json())
       .then((json) => setMovies(json.results))
-      .catch((err) => console.error(err));
+      .catch((err) => console.error(console.error(err)));
   }, []);
 
   const handleChange = (e) => {
@@ -23,6 +23,8 @@ const Home = () => {
     const searchTerm = e.target.value.trim().toLowerCase();
     setSearchInput(searchTerm);
   };
+
+  console.log(searchInput);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -43,6 +45,8 @@ const Home = () => {
     }
   }
 
+  console.log(movieResults);
+
   return (
     <div className="home-page">
       {movies && <Backdrop movies={movies} />}
@@ -50,8 +54,11 @@ const Home = () => {
       {/* Render Search Bar First, Render Results After Submit*/}
       {!movieResults ? (
         <SearchBarHome
+          movieResults={movieResults}
+          setMovieResults={setMovieResults}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
+          searchInput={searchInput}
         />
       ) : (
         <SearchResults movieResults={movieResults} />
