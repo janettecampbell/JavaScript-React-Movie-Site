@@ -12,12 +12,6 @@ const NavBar = (props) => {
     setSearchInput(searchTerm);
   };
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    const searchTerm = e.target.value.trim().toLowerCase();
-    setSearchInput(searchTerm);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     fetch(
