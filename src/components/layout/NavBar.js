@@ -38,7 +38,7 @@ const NavBar = (props) => {
         </nav>
       </div>
       <div className="notification">
-        <p>*Takes 30 seconds for server to wake up on first use.</p>
+        <p>*Takes 30 seconds for server to wake upon first use.</p>
       </div>
       <div className="search-bar-group">
         <div className="search-bar">
