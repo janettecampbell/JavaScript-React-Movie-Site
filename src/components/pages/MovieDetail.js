@@ -10,7 +10,6 @@ const MovieDetail = () => {
 
   const location = useLocation();
   const movieID = location.state.id;
-  // const movieID = 436270;
 
   useEffect(() => {
     fetch(
