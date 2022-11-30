@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import MovieList from "../layout/MovieList";
 
 const Movies = () => {
-  const [popularMovies, setPopularMovies] = useState(null);
+  const [upcomingMovies, setUpcomingMovies] = useState(null);
   const [page, setPage] = useState(2);
 
   useEffect(() => {
@@ -11,7 +11,7 @@ const Movies = () => {
       "https://api.themoviedb.org/3/movie/upcoming?api_key=4af29920e903cef08f533ae3feff4860&language=en-US&page=1"
     )
       .then((res) => res.json())
-      .then((json) => setPopularMovies(json.results));
+      .then((json) => setUpcomingMovies(json.results));
   }, []);
 
   const handleClick = () => {
@@ -21,14 +21,14 @@ const Movies = () => {
       `https://api.themoviedb.org/3/movie/upcoming?api_key=4af29920e903cef08f533ae3feff4860&language=en-US&page=${page}`
     )
       .then((res) => res.json())
-      .then((json) => setPopularMovies([...popularMovies, ...json.results]));
+      .then((json) => setUpcomingMovies([...upcomingMovies, ...json.results]));
   };
 
   return (
     <div className="movie-home">
       <NavBar />
       <div className="movie-list">
-        {popularMovies && <MovieList movies={popularMovies} />}
+        {upcomingMovies && <MovieList movies={upcomingMovies} />}
       </div>
       <div className="load-more">
         <button className="btn-load" onClick={handleClick}>
