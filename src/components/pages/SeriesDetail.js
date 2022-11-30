@@ -124,6 +124,7 @@ const MovieDetail = () => {
           <div className="content-wrapper">
             <div className="title-wrapper">
               <h1>{details.original_name}</h1>
+
               <p>
                 <span>{convertDate(details.first_air_date)} (US)</span> &#8226;{" "}
                 <span>{getGenre(details.genres)} &#8226;</span>{" "}

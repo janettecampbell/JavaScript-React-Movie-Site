@@ -124,7 +124,25 @@ header {
   overflow: auto;
 }
 
-.left-column {
+.load-more {
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.btn-load {
+  background-color: #4adede;
+  padding: 10px 230px;
+  font-size: 3vw;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+}
+
+/* SERIES PAGE */
+
+.series-home {
+  width: 100%;
+  overflow: auto;
 }
 
 /* MOVIE CARDS */
