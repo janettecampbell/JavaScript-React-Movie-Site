@@ -59,6 +59,14 @@ header {
   color: #fff;
 }
 
+/* Nav Bar Notification */
+
+.notification {
+  color: #fff;
+  height: fit-content;
+  margin: auto;
+}
+
 /* Nav Bar Search Bar */
 
 .search-bar-button {
