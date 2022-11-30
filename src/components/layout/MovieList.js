@@ -1,11 +1,11 @@
 import Movie from "./MovieCard";
 
 const MovieList = (props) => {
-  const { popularMovies } = props;
+  const { movies } = props;
 
   return (
     <div className="movie-items">
-      {popularMovies.map((movie) => (
+      {movies.map((movie) => (
         <Movie key={movie.id} movie={movie} />
       ))}
     </div>
