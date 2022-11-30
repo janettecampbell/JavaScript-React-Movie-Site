@@ -1,10 +1,11 @@
-import searchIcon from "../images/search-icon.png";
 import logo from "../images/movie-logo-white.png";
+import SearchNavBar from "../layout/SearchNavBar";
+import SearchResults from "../layout/SearchResults";
 import { useState } from "react";
 
 const NavBar = (props) => {
   const [searchInput, setSearchInput] = useState(null);
-  const [SearchResults, setSearchResults] = useState("");
+  const [movieResults, setMovieResults] = useState("");
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -18,7 +19,7 @@ const NavBar = (props) => {
       `https://api.themoviedb.org/3/search/multi?api_key=4af29920e903cef08f533ae3feff4860&language=en-US&query=${searchInput}&page=1&include_adult=false`
     )
       .then((res) => res.json())
-      .then((json) => setSearchResults(json.results))
+      .then((json) => setMovieResults(json.results))
       .catch((err) => console.error(console.error(err)));
   };
 
@@ -40,20 +41,18 @@ const NavBar = (props) => {
       <div className="notification">
         <p>*Takes 30 seconds for server to wake upon first use.</p>
       </div>
+
       <div className="search-bar-group">
         <div className="search-bar">
-          <form onSubmit={handleSubmit}>
-            <input
-              onSubmit={handleSubmit}
-              className="search-bar-input"
-              type="search"
-              onChange={handleChange}
-              placeholder="Search..."
+          {!movieResults ? (
+            <SearchNavBar
+              handleChange={handleChange}
+              handleSubmit={handleSubmit}
+              searchInput={searchInput}
             />
-            <button className="search-bar-button" onClick={handleSubmit}>
-              <img src={searchIcon} alt="magnifying glass" />
-            </button>
-          </form>
+          ) : (
+            <SearchResults movieResults={movieResults} />
+          )}
         </div>
       </div>
     </header>
