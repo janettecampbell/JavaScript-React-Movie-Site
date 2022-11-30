@@ -18,7 +18,7 @@ const MovieDetail = () => {
       .then((res) => res.json())
       .then((json) => setDetails(json))
       .catch((err) => console.error(err));
-  }, []);
+  }, [movieID]);
 
   useEffect(() => {
     const fetchVideoData = async () => {
