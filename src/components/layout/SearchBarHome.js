@@ -1,7 +1,6 @@
 import searchIcon from "../images/search-icon.png";
 
 const SearchBarHome = (props) => {
-  // const [movieResults, setMovieResults] = useState("");
   const { handleChange, handleSubmit } = props;
 
   return (

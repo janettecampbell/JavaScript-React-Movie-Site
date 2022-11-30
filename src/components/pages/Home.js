@@ -50,8 +50,6 @@ const Home = () => {
       {/* Render Search Bar First, Render Results After Submit*/}
       {!movieResults ? (
         <SearchBarHome
-          movieResults={movieResults}
-          setMovieResults={setMovieResults}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
           searchInput={searchInput}
