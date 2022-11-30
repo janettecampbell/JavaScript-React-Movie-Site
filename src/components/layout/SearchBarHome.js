@@ -10,7 +10,7 @@ const SearchBarHome = (props) => {
           type="text"
           className="search-field"
           onChange={handleChange}
-          placeholder="What would you like to watch?"
+          placeholder="Search..."
         />
         <button className="search-button" type="submit" onClick={handleSubmit}>
           <img src={searchIcon} alt="magnifying glass" />

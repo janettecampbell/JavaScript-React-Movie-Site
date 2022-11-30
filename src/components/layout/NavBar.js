@@ -1,10 +1,12 @@
 import searchIcon from "../images/search-icon.png";
 import logo from "../images/movie-logo-white.png";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const NavBar = (props) => {
   const [searchInput, setSearchInput] = useState(null);
   const [movieResults, setMovieResults] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -20,6 +22,8 @@ const NavBar = (props) => {
       .then((res) => res.json())
       .then((json) => setMovieResults(json.results))
       .catch((err) => console.error(console.error(err)));
+
+    navigate(`/search-results/${searchInput}`);
   };
 
   return (
