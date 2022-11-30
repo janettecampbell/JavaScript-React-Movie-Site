@@ -1,6 +1,5 @@
+import searchIcon from "../images/search-icon.png";
 import logo from "../images/movie-logo-white.png";
-import SearchNavBar from "../layout/SearchNavBar";
-import SearchResults from "../layout/SearchResults";
 import { useState } from "react";
 
 const NavBar = (props) => {
@@ -41,18 +40,20 @@ const NavBar = (props) => {
       <div className="notification">
         <p>*Takes 30 seconds for server to wake upon first use.</p>
       </div>
-
       <div className="search-bar-group">
         <div className="search-bar">
-          {!movieResults ? (
-            <SearchNavBar
-              handleChange={handleChange}
-              handleSubmit={handleSubmit}
-              searchInput={searchInput}
+          <form onSubmit={handleSubmit}>
+            <input
+              onSubmit={handleSubmit}
+              className="search-bar-input"
+              type="search"
+              onChange={handleChange}
+              placeholder="Search..."
             />
-          ) : (
-            <SearchResults movieResults={movieResults} />
-          )}
+            <button className="search-bar-button" onClick={handleSubmit}>
+              <img src={searchIcon} alt="magnifying glass" />
+            </button>
+          </form>
         </div>
       </div>
     </header>
