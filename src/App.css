@@ -197,6 +197,10 @@ header {
   margin-top: -26px;
 }
 
+.content h3 {
+  font-size: 1.5rem;
+}
+
 .description {
   display: none;
 }
@@ -218,6 +222,18 @@ header {
 }
 
 .movie-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 10px 10px 0 0;
+  width: 100%;
+}
+
+.movie-img-background {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
   border-radius: 10px 10px 0 0;
   width: 100%;
 }
@@ -236,6 +252,10 @@ header {
 
 .percent {
   padding: 8px 7px 0 0;
+}
+
+.poster-image-wrapper {
+  position: relative;
 }
 
 .rating {

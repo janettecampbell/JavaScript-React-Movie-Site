@@ -15,7 +15,7 @@ const Home = () => {
     )
       .then((res) => res.json())
       .then((json) => setMovies(json.results))
-      .catch((err) => console.error(console.error(err)));
+      .catch((err) => console.error(err));
   }, []);
 
   const handleChange = (e) => {

@@ -7,7 +7,7 @@ import UpcomingMovies from "./components/pages/UpcomingMovies";
 import { Routes, Route } from "react-router-dom";
 import MovieDetail from "./components/pages/MovieDetail";
 import SeriesDetail from "./components/pages/SeriesDetail";
-import SearchResults from "./components/layout/SearchResults";
+import SearchBarResults from "./components/pages/SearchBarResults";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
         <Route path="/tv-series" element={<TVSeries />} />
         <Route path="/movie-detail/*" element={<MovieDetail />} />
         <Route path="/series-detail/*" element={<SeriesDetail />} />
-        <Route path="/search-results/*" element={<SearchResults />} />
+        <Route path="/search-results/*" element={<SearchBarResults />} />
       </Routes>
     </div>
   );

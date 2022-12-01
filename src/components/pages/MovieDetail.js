@@ -35,7 +35,7 @@ const MovieDetail = () => {
     //   .then((res) => res.json())
     //   .then((json) => setVideos(json.results))
     //   .catch((err) => console.error(err));
-  }, []);
+  }, [movieID]);
 
   useEffect(() => {
     document.title = `Movie Page | ${details.title || "Details"}`;

@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import noPoster from "../images/no-image.jpg";
+import backgroundImage from "../images/background-image.jpg";
 
 const MovieCard = (props) => {
   const { movie } = props;
@@ -23,7 +25,6 @@ const MovieCard = (props) => {
     if (newPath !== location.pathname) {
       navigate(`/movie-detail/${movie.title}`, { state: { id: movie.id } });
     }
-    // navigate("/detail", { state: { id: movie.id } });
   };
 
   return (
@@ -34,11 +35,34 @@ const MovieCard = (props) => {
       onClick={handleClick}
     >
       <div className="image-wrapper">
-        <img
+        {movie.poster_path ? (
+          <div className="poster-image-wrapper">
+            <img
+              className="movie-img-background"
+              src={backgroundImage}
+              alt="Sizer"
+            />
+            <img
+              className="movie-img"
+              src={`https://image.tmdb.org/t/p/w185${movie.poster_path}`}
+              alt={movie.title}
+            />
+          </div>
+        ) : (
+          <div className="poster-image-wrapper">
+            <img
+              className="movie-img-background"
+              src={backgroundImage}
+              alt="Sizer"
+            />
+            <img className="movie-img" src={noPoster} alt="No Poster" />
+          </div>
+        )}
+        {/* <img
           className="movie-img"
           src={`https://image.tmdb.org/t/p/w185${movie.poster_path}`}
           alt={movie.title}
-        />
+        /> */}
         <div className={`description ${isVisible ? "visible" : ""}`}>
           <p>{movie.overview}</p>
         </div>

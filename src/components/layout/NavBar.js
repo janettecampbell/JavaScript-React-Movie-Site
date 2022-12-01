@@ -1,12 +1,13 @@
 import searchIcon from "../images/search-icon.png";
 import logo from "../images/movie-logo-white.png";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const NavBar = (props) => {
   const [searchInput, setSearchInput] = useState(null);
-  const [movieResults, setMovieResults] = useState("");
+  // const [movieResults, setMovieResults] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -16,14 +17,24 @@ const NavBar = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(
-      `https://api.themoviedb.org/3/search/multi?api_key=4af29920e903cef08f533ae3feff4860&language=en-US&query=${searchInput}&page=1&include_adult=false`
-    )
-      .then((res) => res.json())
-      .then((json) => setMovieResults(json.results))
-      .catch((err) => console.error(console.error(err)));
+    const searchTerm = e.target.value.trim().toLowerCase();
+    setSearchInput(searchTerm);
 
-    navigate(`/search-results/${searchInput}`);
+    // fetch(
+    //   `https://api.themoviedb.org/3/search/multi?api_key=4af29920e903cef08f533ae3feff4860&language=en-US&query=${searchInput}&page=1&include_adult=false`
+    // )
+    //   .then((res) => res.json())
+    //   .then((json) => setMovieResults(json.results))
+    //   .catch((err) => console.error(console.error(err)));
+
+    const basePath = location.pathname;
+    const newPath = `${basePath}/${searchInput || "search"}`;
+
+    if (newPath !== location.pathname) {
+      navigate(`/search-results/${searchInput}`, {
+        state: { searchInput: searchInput },
+      });
+    }
   };
 
   return (
