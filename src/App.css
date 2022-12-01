@@ -164,6 +164,11 @@ header {
 /* MOVIE PAGE */
 
 .btn-load {
+  display: none;
+}
+
+.btn-visible {
+  display: block;
   background-color: #4adede;
   padding: 3vh 26vw;
   font-size: 3rem;

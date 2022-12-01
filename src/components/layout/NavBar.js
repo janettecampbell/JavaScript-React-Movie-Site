@@ -5,6 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const NavBar = (props) => {
   const [searchInput, setSearchInput] = useState(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -30,6 +31,8 @@ const NavBar = (props) => {
     }
   };
 
+  const handleClick = () => {};
+
   return (
     <header>
       <div className="nav-group">
@@ -53,12 +56,12 @@ const NavBar = (props) => {
           <form onSubmit={handleSubmit}>
             <input
               onSubmit={handleSubmit}
-              className="search-bar-input"
+              className={`search-bar-input`}
               type="search"
               onChange={handleChange}
               placeholder="Search..."
             />
-            <button className="search-bar-button" onClick={handleSubmit}>
+            <button className="search-bar-button" onClick={handleClick}>
               <img src={searchIcon} alt="magnifying glass" />
             </button>
           </form>
