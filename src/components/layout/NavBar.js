@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const NavBar = (props) => {
   const [searchInput, setSearchInput] = useState(null);
-  // const [movieResults, setMovieResults] = useState("");
+
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -19,13 +19,6 @@ const NavBar = (props) => {
     e.preventDefault();
     const searchTerm = e.target.value.trim().toLowerCase();
     setSearchInput(searchTerm);
-
-    // fetch(
-    //   `https://api.themoviedb.org/3/search/multi?api_key=4af29920e903cef08f533ae3feff4860&language=en-US&query=${searchInput}&page=1&include_adult=false`
-    // )
-    //   .then((res) => res.json())
-    //   .then((json) => setMovieResults(json.results))
-    //   .catch((err) => console.error(console.error(err)));
 
     const basePath = location.pathname;
     const newPath = `${basePath}/${searchInput || "search"}`;

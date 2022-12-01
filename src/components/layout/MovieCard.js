@@ -58,11 +58,6 @@ const MovieCard = (props) => {
             <img className="movie-img" src={noPoster} alt="No Poster" />
           </div>
         )}
-        {/* <img
-          className="movie-img"
-          src={`https://image.tmdb.org/t/p/w185${movie.poster_path}`}
-          alt={movie.title}
-        /> */}
         <div className={`description ${isVisible ? "visible" : ""}`}>
           <p>{movie.overview}</p>
         </div>

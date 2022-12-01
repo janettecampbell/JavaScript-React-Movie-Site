@@ -29,12 +29,6 @@ const MovieDetail = () => {
     };
 
     fetchVideoData();
-    // fetch(
-    //   `https://api.themoviedb.org/3/movie/${movieID}/videos?api_key=4af29920e903cef08f533ae3feff4860&language=en-US`
-    // )
-    //   .then((res) => res.json())
-    //   .then((json) => setVideos(json.results))
-    //   .catch((err) => console.error(err));
   }, [movieID]);
 
   useEffect(() => {
