@@ -11,7 +11,11 @@ const MovieCard = (props) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const handleMouseOver = () => {
-    setIsVisible(true);
+    if (movie.overview === "") {
+      setIsVisible(false);
+    } else {
+      setIsVisible(true);
+    }
   };
 
   const handleMouseOut = () => {

@@ -1,6 +1,6 @@
 import SearchBarHome from "../layout/SearchBarHome";
 import NavBar from "../layout/NavBar";
-import Backdrop from "../Backdrop";
+import Backdrop from "../layout/Backdrop";
 import { useEffect, useState } from "react";
 import SearchResults from "../layout/SearchResults";
 
