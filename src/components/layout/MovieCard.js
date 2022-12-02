@@ -31,6 +31,12 @@ const MovieCard = (props) => {
     }
   };
 
+  const convertDate = (inputDate = "") => {
+    const [year, month, day] = inputDate.split("-");
+    const date = [month, day, year].join("/");
+    return date;
+  };
+
   return (
     <div
       className="movie-card"
@@ -74,7 +80,9 @@ const MovieCard = (props) => {
       </div>
       <div className="content">
         <h3>{movie.title || movie.name}</h3>
-        <p>{movie.release_date || movie.first_air_date}</p>
+        <p>{`${convertDate(
+          movie.release_date || movie.first_air_date
+        )} (US)`}</p>
       </div>
     </div>
   );
