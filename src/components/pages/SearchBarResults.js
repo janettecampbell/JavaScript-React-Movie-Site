@@ -15,6 +15,8 @@ const SearchBarResults = (props) => {
   console.log(searchInput);
 
   useEffect(() => {
+    setPage(2);
+
     const fetchSearchData = async () => {
       const data = await fetch(
         `https://api.themoviedb.org/3/search/movie?api_key=4af29920e903cef08f533ae3feff4860&language=en-US&query=${searchInput}&page=1&include_adult=false`
@@ -27,8 +29,6 @@ const SearchBarResults = (props) => {
     fetchSearchData();
   }, [searchInput]);
 
-  useEffect(() => {});
-
   console.log(totalPages);
 
   const handleClick = () => {
@@ -40,8 +40,10 @@ const SearchBarResults = (props) => {
       .then((res) => res.json())
       .then((json) => setMovieResults([...movieResults, ...json.results]));
 
-    if (totalPages <= page) {
+    if (totalPages < page) {
       setIsVisible(false);
+    } else {
+      setIsVisible(true);
     }
   };
 

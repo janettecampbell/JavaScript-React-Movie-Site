@@ -19,9 +19,6 @@ const NavBar = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const searchTerm = e.target.value.trim().toLowerCase();
-    setSearchInput(searchTerm);
-
     const basePath = location.pathname;
     const newPath = `${basePath}/${searchInput || "search"}`;
 
@@ -30,8 +27,6 @@ const NavBar = (props) => {
         state: { searchInput: searchInput },
       });
     }
-
-    console.log("it ran");
   };
 
   const handleClick = () => {
@@ -70,11 +65,6 @@ const NavBar = (props) => {
             <button className="search-bar-button" onClick={handleClick}>
               <img src={searchIcon} alt="magnifying glass" />
             </button>
-            {/* <input
-              className="search-bar-submit"
-              type="submit"
-              onSubmit={handleSubmit}
-            /> */}
           </form>
         </div>
       </div>

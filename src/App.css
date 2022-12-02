@@ -107,10 +107,6 @@ header {
   filter: invert(50%);
 }
 
-.search-bar-submit {
-  display: none;
-}
-
 .search-exit {
   transition: all 1s;
   background: none;
@@ -515,6 +511,10 @@ header {
 }
 
 .trailer-wrapper {
+  display: none;
+}
+
+.play-video-visible {
   display: flex;
   flex-wrap: wrap;
   align-content: center;

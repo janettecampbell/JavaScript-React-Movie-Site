@@ -2,11 +2,14 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import NavBar from "../layout/NavBar";
 import playButton from "../images/play-button.png";
+import noPoster from "../images/no-image.jpg";
+import noBackdrop from "../images/no-backdrop.jpg";
 
 const MovieDetail = () => {
   const [details, setDetails] = useState("");
   const [videos, setVideos] = useState("");
   const [isVisible, setIsVisible] = useState(false);
+  const [playVideoIsVisible, setPlayVideoIsVisible] = useState(true);
 
   const location = useLocation();
   const movieID = location.state.id;
@@ -21,14 +24,21 @@ const MovieDetail = () => {
   }, [movieID]);
 
   useEffect(() => {
-    const fetchVideoData = async () => {
-      const data = await fetch(
-        `https://api.themoviedb.org/3/movie/${movieID}/videos?api_key=4af29920e903cef08f533ae3feff4860&language=en-US`
-      ).then((res) => res.json());
-      setVideos(data.results);
-    };
+    // const fetchVideoData = async () => {
+    //   const data = await fetch(
+    //     `https://api.themoviedb.org/3/movie/${movieID}/videos?api_key=4af29920e903cef08f533ae3feff4860&language=en-US`
+    //   ).then((res) => res.json());
+    //   setVideos(data.results);
+    // };
 
-    fetchVideoData();
+    // fetchVideoData();
+
+    fetch(
+      `https://api.themoviedb.org/3/movie/${movieID}/videos?api_key=4af29920e903cef08f533ae3feff4860&language=en-US`
+    )
+      .then((res) => res.json())
+      .then((json) => setVideos(json.results))
+      .catch((err) => console.error(err));
   }, [movieID]);
 
   useEffect(() => {
@@ -49,6 +59,16 @@ const MovieDetail = () => {
 
     return () => document.removeEventListener("click", closeVideo);
   }, []);
+
+  useEffect(() => {
+    console.log(videos.length);
+
+    if (videos.length === 0) {
+      setPlayVideoIsVisible(false);
+    } else {
+      setPlayVideoIsVisible(true);
+    }
+  }, [videos]);
 
   const convertDate = (inputDate = "") => {
     const [year, month, day] = inputDate.split("-");
@@ -79,7 +99,7 @@ const MovieDetail = () => {
   };
 
   const getVideo = () => {
-    const baseURL = "https://www.youtube.com/embed/";
+    const baseURL = "https://www.youtube-nocookie.com/embed/";
 
     for (let i = 0; i < videos.length; i++) {
       if (videos[i].name.includes("Trailer")) {
@@ -95,6 +115,18 @@ const MovieDetail = () => {
     return inputNumber.toLocaleString("en-US", { currency: "USD" });
   };
 
+  const getPoster = () => {
+    if (details.poster_path !== null) {
+      return `https://image.tmdb.org/t/p/w500${details.poster_path}`;
+    } else return noPoster;
+  };
+
+  const getBackdrop = () => {
+    if (details.backdrop_path !== null) {
+      return `https://image.tmdb.org/t/p/original${details.backdrop_path}`;
+    } else return noBackdrop;
+  };
+
   const handleClick = () => {
     setIsVisible((current) => !current);
   };
@@ -106,7 +138,7 @@ const MovieDetail = () => {
         <div className="background-image-wrapper">
           <img
             className="background-image"
-            src={`https://image.tmdb.org/t/p/original${details.backdrop_path}`}
+            src={getBackdrop()}
             alt={`${details.title} Backdrop`}
           />
         </div>
@@ -114,7 +146,7 @@ const MovieDetail = () => {
           <div className="poster-wrapper">
             <img
               className="poster"
-              src={`https://image.tmdb.org/t/p/w342${details.poster_path}`}
+              src={getPoster()}
               alt={`${details.title} Poster`}
             />
           </div>
@@ -146,7 +178,12 @@ const MovieDetail = () => {
                   </div>
                 </div>
               </div>
-              <div className="trailer-wrapper" onClick={handleClick}>
+              <div
+                className={`trailer-wrapper${
+                  playVideoIsVisible ? " play-video-visible" : ""
+                }`}
+                onClick={handleClick}
+              >
                 <img
                   className="play-button"
                   src={playButton}
