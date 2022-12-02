@@ -18,6 +18,7 @@ const NavBar = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const searchTerm = e.target.value.trim().toLowerCase();
     setSearchInput(searchTerm);
 
@@ -29,9 +30,13 @@ const NavBar = (props) => {
         state: { searchInput: searchInput },
       });
     }
+
+    console.log("it ran");
   };
 
-  const handleClick = () => {};
+  const handleClick = () => {
+    setIsVisible((current) => !current);
+  };
 
   return (
     <header>
@@ -55,8 +60,9 @@ const NavBar = (props) => {
         <div className="search-bar">
           <form onSubmit={handleSubmit}>
             <input
-              onSubmit={handleSubmit}
-              className={`search-bar-input`}
+              className={`search-bar-input${
+                isVisible ? " search-visible" : " search-exit"
+              }`}
               type="search"
               onChange={handleChange}
               placeholder="Search..."
@@ -64,6 +70,11 @@ const NavBar = (props) => {
             <button className="search-bar-button" onClick={handleClick}>
               <img src={searchIcon} alt="magnifying glass" />
             </button>
+            {/* <input
+              className="search-bar-submit"
+              type="submit"
+              onSubmit={handleSubmit}
+            /> */}
           </form>
         </div>
       </div>

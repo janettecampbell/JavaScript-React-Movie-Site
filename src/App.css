@@ -86,7 +86,7 @@ header {
   height: 26px;
 }
 
-.search-bar input {
+.search-bar-input {
   background: none;
   border: none;
   border-bottom: 1px solid;
@@ -94,21 +94,40 @@ header {
   width: 0;
   padding: 0;
   opacity: 0;
-  color: #fff;
-  transition: all 1s;
+  font-size: 15px;
 }
 
-.search-bar input::placeholder {
+.search-bar-input::placeholder {
   color: #fff;
   font-weight: 400;
 }
 
-.search-bar input[type="search"]::-webkit-search-cancel-button {
+.search-bar-input[type="search"]::-webkit-search-cancel-button {
   -webkit-filter: invert(50%); /* Safari 6.0 - 9.0 */
   filter: invert(50%);
 }
 
-.search-bar:hover input {
+.search-bar-submit {
+  display: none;
+}
+
+.search-exit {
+  transition: all 1s;
+  background: none;
+  border: none;
+  border-bottom: 1px solid;
+  width: 0;
+  padding: 0;
+  opacity: 0;
+}
+
+.search-visible {
+  background: none;
+  border: none;
+  border-bottom: 1px solid;
+  outline: none;
+  color: #fff;
+  transition: all 1s;
   width: 240px;
   opacity: 1;
   padding: 10px 20px;
