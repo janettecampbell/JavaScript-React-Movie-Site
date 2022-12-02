@@ -61,8 +61,6 @@ const MovieDetail = () => {
   }, []);
 
   useEffect(() => {
-    console.log(videos.length);
-
     if (videos.length === 0) {
       setPlayVideoIsVisible(false);
     } else {
