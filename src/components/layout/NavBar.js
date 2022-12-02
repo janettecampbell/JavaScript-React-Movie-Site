@@ -62,7 +62,11 @@ const NavBar = (props) => {
               onChange={handleChange}
               placeholder="Search..."
             />
-            <button className="search-bar-button" onClick={handleClick}>
+            <button
+              className="search-bar-button"
+              type="button"
+              onClick={handleClick}
+            >
               <img src={searchIcon} alt="magnifying glass" />
             </button>
           </form>
