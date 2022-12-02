@@ -24,15 +24,6 @@ const MovieDetail = () => {
   }, [movieID]);
 
   useEffect(() => {
-    // const fetchVideoData = async () => {
-    //   const data = await fetch(
-    //     `https://api.themoviedb.org/3/movie/${movieID}/videos?api_key=4af29920e903cef08f533ae3feff4860&language=en-US`
-    //   ).then((res) => res.json());
-    //   setVideos(data.results);
-    // };
-
-    // fetchVideoData();
-
     fetch(
       `https://api.themoviedb.org/3/movie/${movieID}/videos?api_key=4af29920e903cef08f533ae3feff4860&language=en-US`
     )
