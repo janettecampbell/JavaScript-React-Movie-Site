@@ -10,6 +10,7 @@ const MovieCard = (props) => {
 
   const [isVisible, setIsVisible] = useState(false);
 
+  // show movie overview on mouse over
   const handleMouseOver = () => {
     if (movie.overview === "") {
       setIsVisible(false);
@@ -18,19 +19,23 @@ const MovieCard = (props) => {
     }
   };
 
+  // hide movie overview on mouse out
   const handleMouseOut = () => {
     setIsVisible(false);
   };
 
+  // make sure current location doesn't match movie-detail page
+  // then navigate to page
   const handleClick = () => {
     const basePath = location.pathname;
-    const newPath = `${basePath}/${movie.title || "movie"}`;
+    const newPath = `${basePath}/movie-detail/${movie.title || "movie"}`;
 
     if (newPath !== location.pathname) {
       navigate(`/movie-detail/${movie.title}`, { state: { id: movie.id } });
     }
   };
 
+  // convert results date to US date format
   const convertDate = (inputDate = "") => {
     const [year, month, day] = inputDate.split("-");
     const date = [month, day, year].join("/");
