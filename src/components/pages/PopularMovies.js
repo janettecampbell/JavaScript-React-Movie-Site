@@ -30,8 +30,11 @@ const Movies = () => {
   }, [totalPages]);
 
   const handleClick = () => {
+    // increment page count
     setPage(page + 1);
 
+    // get popular movie data for page from api and render with
+    // current results
     fetch(
       `https://api.themoviedb.org/3/movie/popular?api_key=4af29920e903cef08f533ae3feff4860&language=en-US&page=${page}`
     )
