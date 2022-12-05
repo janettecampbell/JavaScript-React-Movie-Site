@@ -39,8 +39,6 @@ const SearchBarResults = (props) => {
     }
   }, [searchInput, totalPages]);
 
-  console.log(totalPages);
-
   const handleClick = () => {
     // increment page count
     setPage(page + 1);
@@ -53,15 +51,12 @@ const SearchBarResults = (props) => {
       .then((json) => setMovieResults([...movieResults, ...json.results]));
 
     // show load more button only if there are more search results
-    console.log(page);
     if (totalPages < page + 1) {
       setIsVisible(false);
     } else {
       setIsVisible(true);
     }
   };
-
-  console.log(page);
 
   return (
     <div className="search-bar-results">
