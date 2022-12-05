@@ -21,12 +21,6 @@ const Movies = () => {
 
     fetchMovieData();
 
-    // fetch(
-    //   "https://api.themoviedb.org/3/movie/popular?api_key=4af29920e903cef08f533ae3feff4860&language=en-US&page=1"
-    // )
-    // .then((res) => res.json())
-    // .then((json) => setPopularMovies(json.results));
-
     // show load more button only if there are more search results
     if (totalPages < page) {
       setIsVisible(false);
