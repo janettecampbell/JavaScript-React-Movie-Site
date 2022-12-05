@@ -12,6 +12,8 @@ const NavBar = (props) => {
 
   const handleChange = (e) => {
     e.preventDefault();
+
+    // get searchInput from search field and set search input
     const searchTerm = e.target.value.trim().toLowerCase();
     setSearchInput(searchTerm);
   };
@@ -19,16 +21,21 @@ const NavBar = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // path to current location
     const basePath = location.pathname;
-    const newPath = `${basePath}/${searchInput || "search"}`;
+    // path to search input results
+    const newPath = `${basePath}/search-results/${searchInput || "search"}`;
 
-    if (newPath !== location.pathname) {
+    // make sure base and new path are different
+    // send to searchBarResults page
+    if (newPath !== basePath) {
       navigate(`/search-results/${searchInput}`, {
         state: { searchInput: searchInput },
       });
     }
   };
 
+  // make search input visible and invisible when clicked
   const handleClick = () => {
     setIsVisible((current) => !current);
   };

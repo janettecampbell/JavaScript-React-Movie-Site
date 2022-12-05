@@ -12,8 +12,6 @@ const SearchBarResults = (props) => {
   const location = useLocation();
   const searchInput = location.state.searchInput;
 
-  console.log(searchInput);
-
   useEffect(() => {
     // reset search pages upon new search
     setPage(2);
