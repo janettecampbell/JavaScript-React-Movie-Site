@@ -14,6 +14,7 @@ const MovieDetail = () => {
   const location = useLocation();
   const movieID = location.state.id;
 
+  // get movie data for selected movie
   useEffect(() => {
     fetch(
       `https://api.themoviedb.org/3/movie/${movieID}?api_key=4af29920e903cef08f533ae3feff4860&language=en-US`
@@ -23,6 +24,7 @@ const MovieDetail = () => {
       .catch((err) => console.error(err));
   }, [movieID]);
 
+  // get videos for selected movie
   useEffect(() => {
     fetch(
       `https://api.themoviedb.org/3/movie/${movieID}/videos?api_key=4af29920e903cef08f533ae3feff4860&language=en-US`
@@ -32,10 +34,12 @@ const MovieDetail = () => {
       .catch((err) => console.error(err));
   }, [movieID]);
 
+  // set page title to movie name
   useEffect(() => {
     document.title = `Movie Page | ${details.title || "Details"}`;
   }, [details.title]);
 
+  // close video when you click anywhere off of video
   useEffect(() => {
     const closeVideo = (e) => {
       if (
@@ -51,6 +55,7 @@ const MovieDetail = () => {
     return () => document.removeEventListener("click", closeVideo);
   }, []);
 
+  // if there are no videos don't show play trailer button
   useEffect(() => {
     if (videos.length === 0) {
       setPlayVideoIsVisible(false);
@@ -59,12 +64,14 @@ const MovieDetail = () => {
     }
   }, [videos]);
 
+  // convert result date to US date format
   const convertDate = (inputDate = "") => {
     const [year, month, day] = inputDate.split("-");
     const date = [month, day, year].join("/");
     return date;
   };
 
+  // get genres and separate with commas
   const getGenre = (inputArray = []) => {
     let genres = [];
 
@@ -75,18 +82,22 @@ const MovieDetail = () => {
     return genres.join(", ");
   };
 
+  // get movie hour length
   const getHours = (inputMinutes) => {
     const hours = Math.floor(inputMinutes / 60);
 
     return hours;
   };
 
+  // get remaining minute length
   const getMinutes = (inputMinutes) => {
     const minutes = inputMinutes % 60;
 
     return minutes;
   };
 
+  // if there is a video get the Trailer of Official videos first
+  // if they don't exist play first video
   const getVideo = () => {
     const baseURL = "https://www.youtube-nocookie.com/embed/";
 
@@ -100,22 +111,26 @@ const MovieDetail = () => {
     return baseURL + videos[0];
   };
 
+  // format results to include commas
   const convertToDollars = (inputNumber = "Unknown") => {
     return inputNumber.toLocaleString("en-US", { currency: "USD" });
   };
 
+  // get image for movie
   const getPoster = () => {
     if (details.poster_path !== null) {
       return `https://image.tmdb.org/t/p/w500${details.poster_path}`;
     } else return noPoster;
   };
 
+  // get movie backdrop image for background
   const getBackdrop = () => {
     if (details.backdrop_path !== null) {
       return `https://image.tmdb.org/t/p/original${details.backdrop_path}`;
     } else return noBackdrop;
   };
 
+  // movie trailer only visible on click
   const handleClick = () => {
     setIsVisible((current) => !current);
   };
