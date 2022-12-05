@@ -2,7 +2,6 @@ import SearchBarHome from "../layout/SearchBarHome";
 import NavBar from "../layout/NavBar";
 import Backdrop from "../layout/Backdrop";
 import { useEffect, useState } from "react";
-import SearchResults from "../layout/SearchResults";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Home = () => {
