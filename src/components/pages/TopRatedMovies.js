@@ -12,6 +12,7 @@ const Movies = () => {
     // reset search pages upon new search
     setPage(2);
 
+    // fetch top rated movies data
     const fetchTopRatedData = async () => {
       const data = await fetch(
         "https://api.themoviedb.org/3/movie/top_rated?api_key=4af29920e903cef08f533ae3feff4860&language=en-US&page=1"
@@ -29,17 +30,13 @@ const Movies = () => {
     } else {
       setIsVisible(true);
     }
-
-    // fetch(
-    //   "https://api.themoviedb.org/3/movie/top_rated?api_key=4af29920e903cef08f533ae3feff4860&language=en-US&page=1"
-    // )
-    // .then((res) => res.json())
-    // .then((json) => setTopRatedMovies(json.results));
   }, [totalPages]);
 
   const handleClick = () => {
+    // increment page count
     setPage(page + 1);
 
+    // get top rated movie for page and show with existing results
     fetch(
       `https://api.themoviedb.org/3/movie/top_rated?api_key=4af29920e903cef08f533ae3feff4860&language=en-US&page=${page}`
     )
