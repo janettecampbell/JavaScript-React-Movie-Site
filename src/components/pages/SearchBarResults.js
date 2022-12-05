@@ -31,7 +31,6 @@ const SearchBarResults = (props) => {
     fetchSearchData();
 
     // show load more button only if there are more search results
-    console.log(page);
     if (totalPages < page) {
       setIsVisible(false);
     } else {
