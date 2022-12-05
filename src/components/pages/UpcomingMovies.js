@@ -10,7 +10,6 @@ const Movies = () => {
 
   useEffect(() => {
     // fetch movie data
-
     const fetchUpcomingMovies = async () => {
       const data = await fetch(
         "https://api.themoviedb.org/3/movie/upcoming?api_key=4af29920e903cef08f533ae3feff4860&language=en-US&page=1"
@@ -22,6 +21,7 @@ const Movies = () => {
 
     fetchUpcomingMovies();
 
+    // set load more to not visible if there are no more search results
     if (totalPages < page) {
       setIsVisible(false);
     } else {
@@ -30,8 +30,10 @@ const Movies = () => {
   }, [totalPages]);
 
   const handleClick = () => {
+    // increment page for use in fetch
     setPage(page + 1);
 
+    // fetch page of results and render with current results
     fetch(
       `https://api.themoviedb.org/3/movie/upcoming?api_key=4af29920e903cef08f533ae3feff4860&language=en-US&page=${page}`
     )
