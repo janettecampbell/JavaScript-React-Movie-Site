@@ -15,8 +15,10 @@ const SearchBarResults = (props) => {
   console.log(searchInput);
 
   useEffect(() => {
+    // reset search pages upon new search
     setPage(2);
 
+    // use searchInput to provide search results via fetch call
     const fetchSearchData = async () => {
       const data = await fetch(
         `https://api.themoviedb.org/3/search/movie?api_key=4af29920e903cef08f533ae3feff4860&language=en-US&query=${searchInput}&page=1&include_adult=false`
@@ -27,20 +29,32 @@ const SearchBarResults = (props) => {
     };
 
     fetchSearchData();
-  }, [searchInput]);
+
+    // show load more button only if there are more search results
+    console.log(page);
+    if (totalPages < page) {
+      setIsVisible(false);
+    } else {
+      setIsVisible(true);
+    }
+  }, [searchInput, totalPages]);
 
   console.log(totalPages);
 
   const handleClick = () => {
+    // increment page count
     setPage(page + 1);
 
+    // pull page count results
     fetch(
       `https://api.themoviedb.org/3/search/movie?api_key=4af29920e903cef08f533ae3feff4860&language=en-US&query=${searchInput}&page=${page}&include_adult=false`
     )
       .then((res) => res.json())
       .then((json) => setMovieResults([...movieResults, ...json.results]));
 
-    if (totalPages < page) {
+    // show load more button only if there are more search results
+    console.log(page);
+    if (totalPages < page + 1) {
       setIsVisible(false);
     } else {
       setIsVisible(true);
