@@ -4,6 +4,8 @@ const Backdrop = (props) => {
   let backdropPath;
   let backdropTitle;
 
+  // get popular movie for background
+  // exclude adult and horror films
   const getBackdrop = () => {
     for (let i = 0; i < movies.length; i++) {
       if (movies[i].adult) {
@@ -22,6 +24,7 @@ const Backdrop = (props) => {
     }
   };
 
+  // get title of the popular movie chosen for background
   const getTitle = () => {
     for (let i = 0; i < movies.length; i++) {
       if (movies[i].adult) {
@@ -45,9 +48,6 @@ const Backdrop = (props) => {
 
   return (
     <div className="backdrop">
-      {/* {backdrops.map((movie) => (
-        <Backdrop key={movie.id} movie={movie} />
-      ))} */}
       <img
         className="backdrop-image"
         src={`https://image.tmdb.org/t/p/original${backdropPath}`}
