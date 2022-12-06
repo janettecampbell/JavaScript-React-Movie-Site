@@ -5,7 +5,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const NavBar = (props) => {
   const [searchInput, setSearchInput] = useState(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [searchBarIsVisible, setSearchBarIsVisible] = useState(false);
+  const [menuIsVisible, setMenuIsVisible] = useState(false);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -37,7 +38,7 @@ const NavBar = (props) => {
 
   // make search input visible and invisible when clicked
   const handleClick = () => {
-    setIsVisible((current) => !current);
+    setSearchBarIsVisible((current) => !current);
   };
 
   return (
@@ -60,10 +61,10 @@ const NavBar = (props) => {
       </div>
       <div className="search-bar-group">
         <div className="search-bar">
-          <form onSubmit={handleSubmit}>
+          <form className="search-form" onSubmit={handleSubmit}>
             <input
               className={`search-bar-input${
-                isVisible ? " search-visible" : " search-exit"
+                searchBarIsVisible ? " search-visible" : " search-exit"
               }`}
               type="search"
               onChange={handleChange}
@@ -78,6 +79,30 @@ const NavBar = (props) => {
             </button>
           </form>
         </div>
+      </div>
+      <div className="menu-wrapper">
+        <input type="checkbox" className="checkbox-toggle" />
+        <div className="hamburger">
+          <div></div>
+        </div>
+        <nav className="menu">
+          <div className="menu1">
+            <div className="menu2">
+              <ul>
+                <li>
+                  <a href="/popular-movies">Popular</a>
+                </li>
+                {/* <li><a href="/tv-series">TV-Series</a></li> */}
+                <li>
+                  <a href="/top-rated-movies">Top Rated</a>
+                </li>
+                <li>
+                  <a href="/upcoming-movies">Upcoming</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
       </div>
     </header>
   );
