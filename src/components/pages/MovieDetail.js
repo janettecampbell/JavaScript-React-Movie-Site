@@ -16,12 +16,15 @@ const MovieDetail = () => {
 
   // get movie data for selected movie
   useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/movie/${movieID}?api_key=4af29920e903cef08f533ae3feff4860&language=en-US`
-    )
-      .then((res) => res.json())
-      .then((json) => setDetails(json))
-      .catch((err) => console.error(err));
+    const fetchMovieData = async () => {
+      const data = await fetch(
+        `https://api.themoviedb.org/3/movie/${movieID}?api_key=4af29920e903cef08f533ae3feff4860&language=en-US`
+      ).then((res) => res.json());
+
+      setDetails(data);
+    };
+
+    fetchMovieData();
   }, [movieID]);
 
   // get videos for selected movie
@@ -142,7 +145,7 @@ const MovieDetail = () => {
         <div className="background-image-wrapper">
           <img
             className="background-image"
-            src={getBackdrop()}
+            src={details.backdrop_path ? getBackdrop() : ""}
             alt={`${details.title} Backdrop`}
           />
         </div>
@@ -150,7 +153,7 @@ const MovieDetail = () => {
           <div className="poster-wrapper">
             <img
               className="poster"
-              src={getPoster()}
+              src={details.poster_path ? getPoster() : ""}
               alt={`${details.title} Poster`}
             />
           </div>
