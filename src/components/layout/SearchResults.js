@@ -1,3 +1,4 @@
+import FooterScroll from "./FooterScroll";
 import MovieCard from "./MovieCard";
 
 const SearchResults = (props) => {

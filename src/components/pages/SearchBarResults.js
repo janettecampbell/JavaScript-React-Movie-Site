@@ -2,6 +2,7 @@ import NavBar from "../layout/NavBar";
 import SearchResults from "../layout/SearchResults";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import FooterScroll from "../layout/FooterScroll";
 
 const SearchBarResults = (props) => {
   const [movieResults, setMovieResults] = useState([]);
@@ -67,6 +68,7 @@ const SearchBarResults = (props) => {
           Load More
         </button>
       </div>
+      <FooterScroll />
     </div>
   );
 };

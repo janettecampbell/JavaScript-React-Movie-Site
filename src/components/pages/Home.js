@@ -1,6 +1,7 @@
 import SearchBarHome from "../layout/SearchBarHome";
 import NavBar from "../layout/NavBar";
 import Backdrop from "../layout/Backdrop";
+import Footer from "../layout/Footer";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -51,6 +52,7 @@ const Home = () => {
         handleSubmit={handleSubmit}
         searchInput={searchInput}
       />
+      <Footer />
     </div>
   );
 };

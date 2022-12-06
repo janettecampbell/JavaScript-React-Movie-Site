@@ -1,6 +1,7 @@
 import NavBar from "../layout/NavBar";
 import { useEffect, useState } from "react";
 import MovieList from "../layout/MovieList";
+import FooterScroll from "../layout/FooterScroll";
 
 const Movies = () => {
   const [popularMovies, setPopularMovies] = useState(null);
@@ -63,6 +64,7 @@ const Movies = () => {
           Load More
         </button>
       </div>
+      <FooterScroll />
     </div>
   );
 };

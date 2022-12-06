@@ -4,6 +4,7 @@ import NavBar from "../layout/NavBar";
 import playButton from "../images/play-button.png";
 import noPoster from "../images/no-image.jpg";
 import noBackdrop from "../images/no-backdrop.jpg";
+import Footer from "../layout/Footer";
 
 const MovieDetail = () => {
   const [details, setDetails] = useState("");
@@ -242,6 +243,7 @@ const MovieDetail = () => {
           allowFullScreen
         ></iframe>
       </div>
+      <Footer />
     </div>
   );
 };

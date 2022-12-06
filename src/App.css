@@ -129,6 +129,33 @@ header {
   padding: 10px 20px;
 }
 
+/* FOOTER */
+.tmdb-attribution {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.tmdb-attribution-scroll {
+  width: 100%;
+  position: relative;
+  bottom: 0;
+}
+
+.tmdb-attribution img {
+  position: relative;
+  display: block;
+  float: right;
+  height: 45px;
+}
+
+.tmdb-attribution-scroll img {
+  position: relative;
+  display: block;
+  float: right;
+  height: 45px;
+}
+
 /* HOME PAGE */
 
 .backdrop-image {
@@ -184,7 +211,8 @@ header {
 
 .btn-visible {
   display: block;
-  background-color: #4adede;
+  background-color: #01b4e4;
+  color: #fff;
   padding: 3vh 26vw;
   font-size: 3rem;
   font-weight: 600;
@@ -268,6 +296,7 @@ header {
 .movie-list {
   margin: var(--topSpacing) auto 0 auto;
   max-width: var(--maxPageWidth);
+  overflow-y: auto;
 }
 
 .percent {
@@ -381,12 +410,13 @@ header {
 
 .background-image {
   position: fixed;
-  width: 89%;
-  height: 99.3%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   opacity: 0.1;
   object-position: 50% 0;
   margin-left: 11vw;
+  overflow: hidden;
 }
 
 .background-image-wrapper {
@@ -397,9 +427,10 @@ header {
     68%,
     rgba(0, 0, 0, 0.9)
   );
-  height: 90.5%;
+  height: 91.2%;
   width: 100%;
   position: absolute;
+  overflow: hidden;
 }
 
 .detail-box {
@@ -420,6 +451,7 @@ header {
   margin: 0 auto;
   display: flex;
   color: #fff;
+  align-items: center;
 }
 
 .poster {
@@ -436,7 +468,7 @@ header {
 }
 
 .content-wrapper {
-  margin: 3vh 0 0 3vw;
+  margin-left: 3vh;
 }
 
 .movie-rating {
