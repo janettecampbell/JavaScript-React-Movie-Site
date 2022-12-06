@@ -96,6 +96,25 @@ const NavBar = (props) => {
                 <li>
                   <a href="/upcoming-movies">Upcoming</a>
                 </li>
+                <li>
+                  <form className="search-form" onSubmit={handleSubmit}>
+                    <input
+                      className={`search-bar-input${
+                        searchBarIsVisible ? " search-visible" : " search-exit"
+                      }`}
+                      type="search"
+                      onChange={handleChange}
+                      placeholder="Search..."
+                    />
+                    <button
+                      className="search-menu-button"
+                      type="button"
+                      onClick={handleClick}
+                    >
+                      Search
+                    </button>
+                  </form>
+                </li>
               </ul>
             </div>
           </div>
