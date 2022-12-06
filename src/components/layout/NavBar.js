@@ -56,9 +56,6 @@ const NavBar = (props) => {
           <a href="/upcoming-movies">Upcoming</a>
         </nav>
       </div>
-      <div className="notification">
-        <p>*Takes 30 seconds for server to wake upon first use.</p>
-      </div>
       <div className="search-bar-group">
         <div className="search-bar">
           <form className="search-form" onSubmit={handleSubmit}>

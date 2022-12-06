@@ -22,7 +22,7 @@ h4 {
 }
 
 p {
-  font-size: 1.5vw;
+  font-size: 1em;
 }
 
 /* NAV BAR */
@@ -58,14 +58,6 @@ header {
   margin-left: 25px;
   text-decoration: none;
   color: #fff;
-}
-
-/* Nav Bar Notification */
-
-.notification {
-  color: #fff;
-  height: fit-content;
-  margin: auto;
 }
 
 /* Nav Bar Search Bar */
@@ -148,8 +140,8 @@ header {
     margin-right: 17px;
     z-index: 2;
     cursor: pointer;
-    width: 30px;
-    height: 69px;
+    width: 62px;
+    height: 86px;
     opacity: 0;
     border: none;
   }
@@ -173,7 +165,7 @@ header {
     visibility: visible;
   }
 
-  .checkbox-toggle:checked ~ .menu1 {
+  .checkbox-toggle:checked ~ .menu > div {
     transform: scale(1);
     transition-duration: 0.75s;
   }
@@ -185,10 +177,6 @@ header {
 
   .checkbox-toggle:hover + .hamburger {
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-
-  .checkbox-toggle:checked:hover + .hamburger > div {
-    transform: rotate(225deg);
   }
 
   .hamburger {
@@ -340,7 +328,7 @@ header {
     display: none;
   }
 
-  .search-bar img {
+  .search-bar-group {
     display: none;
   }
 }
