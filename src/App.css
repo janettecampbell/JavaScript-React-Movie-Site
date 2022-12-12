@@ -848,7 +848,7 @@ header {
 }
 
 .detail-box {
-  margin-top: 85px;
+  margin-top: var(--topSpacing);
   height: fit-content;
 }
 
@@ -859,7 +859,7 @@ header {
   height: fit-content;
   width: 90vw;
   position: absolute;
-  top: 85px;
+  top: var(--topSpacing);
   left: 0;
   right: 0;
   margin: 0 auto;
