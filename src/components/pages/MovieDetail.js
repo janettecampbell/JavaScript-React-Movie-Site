@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import NavBar from "../layout/NavBar";
 import playButton from "../images/play-button.png";
 import noPoster from "../images/no-image.jpg";
+import noPosterLG from "../images/no-image-500x750.jpg";
 import noBackdrop from "../images/no-backdrop.jpg";
 import Footer from "../layout/Footer";
 
@@ -124,7 +125,7 @@ const MovieDetail = () => {
   const getPoster = () => {
     if (details.poster_path !== null) {
       return `https://image.tmdb.org/t/p/w500${details.poster_path}`;
-    } else return noPoster;
+    } else return noPosterLG;
   };
 
   // get movie backdrop image for background
@@ -146,7 +147,7 @@ const MovieDetail = () => {
         <div className="background-image-wrapper">
           <img
             className="background-image"
-            src={details.backdrop_path ? getBackdrop() : ""}
+            src={details.backdrop_path ? getBackdrop() : noBackdrop}
             alt={`${details.title} Backdrop`}
           />
         </div>
@@ -154,7 +155,7 @@ const MovieDetail = () => {
           <div className="poster-wrapper">
             <img
               className="poster"
-              src={details.poster_path ? getPoster() : ""}
+              src={details.poster_path ? getPoster() : noPosterLG}
               alt={`${details.title} Poster`}
             />
           </div>
