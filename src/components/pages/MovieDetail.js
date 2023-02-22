@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import NavBar from "../layout/NavBar";
 import playButton from "../images/play-button.png";
-import noPoster from "../images/no-image.jpg";
 import noPosterLG from "../images/no-image-500x750.jpg";
 import noBackdrop from "../images/no-backdrop.jpg";
 import Footer from "../layout/Footer";
