@@ -974,3 +974,57 @@ header {
   color: #fff;
   text-decoration: none;
 }
+
+/* MOBILE VIEW */
+
+@media only screen and (max-width: 854px) {
+  h1 {
+    font-size: 3em;
+  }
+
+  h3 {
+    font-size: 2em;
+  }
+
+  h4 {
+    font-size: 1.5em;
+  }
+
+  .detail-box {
+    margin-top: unset;
+    padding-bottom: 67px;
+  }
+
+  .background-image-wrapper {
+    position: fixed;
+    height: 100%;
+  }
+
+  .background-image {
+    margin-left: unset;
+  }
+
+  .detail-panel {
+    display: inline-block;
+    position: relative;
+  }
+
+  .poster {
+    display: block;
+    width: 75%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .content-wrapper {
+    margin: 20px auto;
+    width: 75%;
+  }
+
+  .title-wrapper {
+  }
+
+  .tmdb-attribution {
+    position: relative;
+  }
+}
