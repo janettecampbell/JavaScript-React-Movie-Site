@@ -193,11 +193,11 @@ const MovieDetail = () => {
                 onClick={handleClick}
               >
                 <img
-                  className="play-button"
+                  className="play-button-style play-button"
                   src={playButton}
                   alt="play button"
                 />
-                <h3>Play Trailer</h3>
+                <h3 className="play-button">Play Trailer</h3>
               </div>
             </div>
             <div className="website-wrapper">

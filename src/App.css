@@ -917,9 +917,13 @@ header {
   margin-bottom: 1vh;
 }
 
-.play-button {
+.play-button-style {
   height: 3vh;
   margin: 5px 10px 0 30px;
+}
+
+.play-button {
+  cursor: pointer;
 }
 
 .score-bar {
