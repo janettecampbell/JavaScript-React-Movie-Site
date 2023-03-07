@@ -1021,7 +1021,14 @@ header {
     width: 75%;
   }
 
-  .title-wrapper {
+  .visible-movie {
+    position: absolute;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .movie-trailer iframe {
+    position: fixed;
   }
 
   .tmdb-attribution {
