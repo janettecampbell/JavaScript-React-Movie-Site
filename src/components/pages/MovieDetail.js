@@ -106,9 +106,9 @@ const MovieDetail = () => {
     const baseURL = "https://www.youtube-nocookie.com/embed/";
 
     for (let i = 0; i < videos.length; i++) {
-      if (videos[i].name.includes("Trailer")) {
+      if (videos[i].name.includes("Official")) {
         return baseURL + videos[i].key;
-      } else if (videos[i].name.includes("Official")) {
+      } else if (videos[i].name.includes("Trailer")) {
         return baseURL + videos[i].key;
       }
     }
