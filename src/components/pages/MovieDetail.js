@@ -14,6 +14,8 @@ const MovieDetail = () => {
 
   const location = useLocation();
   const movieID = location.state.id;
+  console.log(movieID)
+  console.log(videos)
 
   // get movie data for selected movie
   useEffect(() => {
@@ -106,10 +108,12 @@ const MovieDetail = () => {
     const baseURL = "https://www.youtube-nocookie.com/embed/";
 
     for (let i = 0; i < videos.length; i++) {
-      if (videos[i].name.includes("Official")) {
-        return baseURL + videos[i].key;
-      } else if (videos[i].name.includes("Trailer")) {
-        return baseURL + videos[i].key;
+      if(videos[i].type === "Trailer"){
+        if (videos[i].name.includes("Official")) {
+          return baseURL + videos[i].key;
+        } else if (videos[i].name.includes("Trailer")) {
+          return baseURL + videos[i].key;
+        }
       }
     }
     return baseURL + videos[0];
