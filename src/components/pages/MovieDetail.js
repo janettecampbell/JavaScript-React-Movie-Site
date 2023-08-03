@@ -48,9 +48,11 @@ const MovieDetail = () => {
   // close video when you click anywhere off of video
   useEffect(() => {
     const closeVideo = (e) => {
+      console.log(e.target.className)
       if (
         e.target.className !== "trailer-wrapper" &&
-        e.target.className !== "play-button"
+        e.target.className !== "play-button" &&
+        e.target.className !== "play-button-style play-button"
       ) {
         setIsVisible(false);
       }
