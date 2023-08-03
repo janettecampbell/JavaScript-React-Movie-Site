@@ -196,7 +196,6 @@ const MovieDetail = () => {
                   className="play-button-style play-button"
                   src={playButton}
                   alt="play button"
-                  onClick={handleClick}
                 />
                 <h3 className="play-button">Play Trailer</h3>
               </div>
