@@ -14,8 +14,6 @@ const MovieDetail = () => {
 
   const location = useLocation();
   const movieID = location.state.id;
-  console.log(movieID)
-  console.log(videos)
 
   // get movie data for selected movie
   useEffect(() => {
