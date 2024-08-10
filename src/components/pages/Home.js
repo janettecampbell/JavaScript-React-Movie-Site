@@ -15,7 +15,7 @@ const Home = () => {
   // get popular movies to use as background
   useEffect(() => {
     fetch(
-      "https://api.themoviedb.org/3/movie/popular?api_key=4af29920e903cef08f533ae3feff4860&language=en-US&page=1"
+      `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`
     )
       .then((res) => res.json())
       .then((json) => setMovies(json.results))

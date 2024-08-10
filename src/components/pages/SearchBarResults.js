@@ -20,7 +20,7 @@ const SearchBarResults = (props) => {
     // use searchInput to provide search results via fetch call
     const fetchSearchData = async () => {
       const data = await fetch(
-        `https://api.themoviedb.org/3/search/movie?api_key=4af29920e903cef08f533ae3feff4860&language=en-US&query=${searchInput}&page=1&include_adult=false`
+        `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${searchInput}&page=1&include_adult=false`
       ).then((res) => res.json());
 
       setMovieResults(data.results);
@@ -43,7 +43,7 @@ const SearchBarResults = (props) => {
 
     // pull page count results
     fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=4af29920e903cef08f533ae3feff4860&language=en-US&query=${searchInput}&page=${page}&include_adult=false`
+      `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${searchInput}&page=${page}&include_adult=false`
     )
       .then((res) => res.json())
       .then((json) => setMovieResults([...movieResults, ...json.results]));

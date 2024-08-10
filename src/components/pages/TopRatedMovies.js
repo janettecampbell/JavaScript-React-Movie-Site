@@ -16,7 +16,7 @@ const Movies = () => {
     // fetch top rated movies data
     const fetchTopRatedData = async () => {
       const data = await fetch(
-        "https://api.themoviedb.org/3/movie/top_rated?api_key=4af29920e903cef08f533ae3feff4860&language=en-US&page=1"
+        `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`
       ).then((res) => res.json());
 
       setTopRatedMovies(data.results);
@@ -39,7 +39,7 @@ const Movies = () => {
 
     // get top rated movie for page and show with existing results
     fetch(
-      `https://api.themoviedb.org/3/movie/top_rated?api_key=4af29920e903cef08f533ae3feff4860&language=en-US&page=${page}`
+      `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${page}`
     )
       .then((res) => res.json())
       .then((json) => setTopRatedMovies([...topRatedMovies, ...json.results]));

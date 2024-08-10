@@ -19,7 +19,7 @@ const MovieDetail = () => {
   useEffect(() => {
     const fetchMovieData = async () => {
       const data = await fetch(
-        `https://api.themoviedb.org/3/movie/${movieID}?api_key=4af29920e903cef08f533ae3feff4860&language=en-US`
+        `https://api.themoviedb.org/3/movie/${movieID}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
       ).then((res) => res.json());
 
       setDetails(data);
@@ -31,7 +31,7 @@ const MovieDetail = () => {
   // get videos for selected movie
   useEffect(() => {
     fetch(
-      `https://api.themoviedb.org/3/movie/${movieID}/videos?api_key=4af29920e903cef08f533ae3feff4860&language=en-US`
+      `https://api.themoviedb.org/3/movie/${movieID}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
     )
       .then((res) => res.json())
       .then((json) => setVideos(json.results))

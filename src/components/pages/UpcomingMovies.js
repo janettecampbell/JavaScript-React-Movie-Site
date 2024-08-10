@@ -13,7 +13,7 @@ const Movies = () => {
     // fetch movie data
     const fetchUpcomingMovies = async () => {
       const data = await fetch(
-        "https://api.themoviedb.org/3/movie/upcoming?api_key=4af29920e903cef08f533ae3feff4860&language=en-US&page=1"
+        `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`
       ).then((res) => res.json());
 
       setUpcomingMovies(data.results);
@@ -36,7 +36,7 @@ const Movies = () => {
 
     // fetch page of results and render with current results
     fetch(
-      `https://api.themoviedb.org/3/movie/upcoming?api_key=4af29920e903cef08f533ae3feff4860&language=en-US&page=${page}`
+      `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${page}`
     )
       .then((res) => res.json())
       .then((json) => setUpcomingMovies([...upcomingMovies, ...json.results]));
