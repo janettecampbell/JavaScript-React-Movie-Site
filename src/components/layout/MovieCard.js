@@ -79,7 +79,9 @@ const MovieCard = (props) => {
       </div>
       <div className="rating">
         <div className="percent">
-          {movie.vote_average === 0 ? "NR" : movie.vote_average * 10}
+          {movie.vote_average === 0
+            ? "NR"
+            : parseInt(Math.round(movie.vote_average * 10).toFixed(0))}
         </div>
         <div className="symbol">{movie.vote_average === 0 ? "" : "%"}</div>
       </div>
